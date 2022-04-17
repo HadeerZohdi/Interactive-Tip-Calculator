@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tip Calculator</title>
+  </head>
+
+  <body>
+    <section class="calculator">
+      <!-- ------------------------------------ LEFT CARD ------------>
+      <div class="left">
+        <div class="bill">
+          <p class="left-p">Bill</p>
+          <div class="bill-input">
+            <img src="../images/icon-dollar.svg" alt="" />
+            <input
+              type="number"
+              class="myinput"
+              id="bill-input"
+              placeholder="0.0"
+            />
+          </div>
+        </div>
+
+        <div class="select-tip">
+          <p class="left-p">Select Tip %</p>
+          <div class="percentage-buttons">
+            <button class="percentage" data-value="5">5%</button>
+            <button class="percentage" data-value="10">10%</button>
+            <button class="percentage active" data-value="15">15%</button>
+            <button class="percentage" data-value="25">25%</button>
+            <button class="percentage" data-value="50">50%</button>
+            <input
+              type="number"
+              class="percentage"
+              placeholder="Custom"
+              id="custom"
+            />
+          </div>
+        </div>
+
+        <div class="no-of-people">
+          <div class="people-text">
+            <p class="left-p">Number of People</p>
+            <p class="hidden" id="no-zero">Can't be Zero</p>
+          </div>
+
+          <div class="people">
+            <img src="../images/icon-person.svg" alt="" />
+            <input
+              type="number"
+              class="myinput"
+              id="people-input"
+              placeholder="0"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------ RIGHT CARD ------------>
+      <div class="right">
+        <div class="bill-result">
+          <div class="tip">
+            <p>
+              Tip Amount <br />
+              <span>/ person</span>
+            </p>
+
+            <span class="result" id="total-tip-span">0.0</span>
+          </div>
+
+          <div class="total">
+            <p>
+              Total Amount <br />
+              <span>/ person</span>
+            </p>
+
+            <span class="result" id="total-bill-span">0.0</span>
+          </div>
+        </div>
+        <button id="reset">RESET</button>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
