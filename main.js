@@ -1,10 +1,11 @@
 const billInput = document.getElementById("bill-input");
 const peopleInput = document.getElementById("people-input");
-const tipButtons = document.querySelectorAll(".percentage");
+const percentageButtons = document.querySelectorAll(".percentage");
 const tipSpan = document.getElementById("total-tip-span");
 const totalSpan = document.getElementById("total-bill-span");
-const customTip = document.getElementById("custom");
-const resetButton = document.getElementById("reset");
+const custom = document.getElementById("custom");
+const noZero = document.getElementById("no-zero");
+const reset = document.getElementById("reset");
 
 let billValue = 0.0;
 billInput.addEventListener("input", function () {
@@ -16,38 +17,39 @@ peopleInput.addEventListener("input", function () {
   peopleAmount = peopleInput.value;
 });
 
-function calculateTip(percantage) {
-  return billValue * peopleAmount * (percantage / 100);
+function tipCalculation(percentageValue) {
+  return billValue * peopleAmount * (percentageValue / 100);
 }
 
-function updateResults(PercentageValue) {
-  tipSpan.innerHTML = calculateTip(PercentageValue);
+function updateResult(percentageValue) {
+  tipSpan.innerHTML = tipCalculation(percentageValue);
   totalSpan.innerHTML =
-    calculateTip(PercentageValue) + +billValue * peopleAmount;
+    tipCalculation(percentageValue) + billValue * peopleAmount;
 }
 
-tipButtons.forEach(function (item, index) {
-  item.onclick = function (e) {
-    tipButtons.forEach(function (_item, _index) {
+percentageButtons.forEach(function (item, index) {
+  item.onclick = function () {
+    percentageButtons.forEach(function (_item, _index) {
       if (index !== _index) _item.classList.remove("active");
     });
     item.classList.add("active");
     if (peopleAmount < 1) {
-      document.getElementById("no-zero").classList.remove("hidden");
+      noZero.classList.remove("hidden");
     } else {
-      updateResults(e.target.getAttribute("data-value"));
-      document.getElementById("no-zero").classList.add("hidden");
+      noZero.classList.add("hidden");
+      updateResult(item.getAttribute("data-value"));
     }
   };
 });
 
-customTip.addEventListener("input", function (event) {
-  updateResults(event.target.value);
+custom.addEventListener("input", function () {
+  updateResult(custom.value);
 });
 
-resetButton.addEventListener("click", function () {
-  tipSpan.innerHTML = "0.0";
-  totalSpan.innerHTML = "0.0";
+reset.onclick = function () {
   billInput.value = "";
   peopleInput.value = "";
-});
+  custom.value = "";
+  tipSpan.innerHTML = "0.0";
+  totalSpan.innerHTML = "0.0";
+};
