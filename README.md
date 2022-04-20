@@ -18,8 +18,8 @@ Users should be able to:
 ![image](https://user-images.githubusercontent.com/83997906/163699162-e845f4f5-9143-474f-a2be-50625e07cdea.png)
 ![image](https://user-images.githubusercontent.com/83997906/163699183-7ad5c409-ff24-424f-b739-b147d62e0b93.png)
 
-- Solution URL: 
-- Live Site URL: 
+- Solution URL: https://www.frontendmentor.io/solutions/tip-calculator-vanilla-javascript-By50_zt49
+- Live Site URL: https://hadeerzohdi-tip-calculation.netlify.app/
 
 
 ## My process
